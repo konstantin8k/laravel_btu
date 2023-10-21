@@ -66,3 +66,6 @@ Route::delete('/delete-info', function () {
     $response = ['message' => $message];
     return response()->json($response);
 });
+
+
+Route::get('profile', [UserController::class, 'show'])->middleware('auth');

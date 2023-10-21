@@ -11,3 +11,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
+
+
+use App\Http\Controllers\Controller;
+use App\Models\Post;
+
+class PostController extends Controller
+{
+    public function show($id)
+    {
+        return view('posts.show', [
+            'post' => Post::findOrFail($id)
+        ]);
+    }
+}
